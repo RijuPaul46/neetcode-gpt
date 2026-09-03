@@ -6,12 +6,8 @@ class Solution:
     def get_model_prediction(self, X: NDArray[np.float64], weights: NDArray[np.float64]) -> NDArray[np.float64]:
         # X is (n, m), weights is (m,) -> return (n,) predictions
         # Round to 5 decimal places
-        n,m=np.shape(X)
-        predictions=[[] for _ in range(n)]
-        for i in range(n):
-            prediction=np.dot(X[i],weights)
-            predictions[i]=round(prediction,5)
-        return predictions
+        predictions=np.dot(X,weights)
+        return np.round(predictions,5)
         pass
 
     def get_error(self, model_prediction: NDArray[np.float64], ground_truth: NDArray[np.float64]) -> float:
