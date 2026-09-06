@@ -18,9 +18,9 @@ class Solution:
         #no of input/ weights
         z=np.dot(x,w)+b
         y_hat=1/(1+math.exp(-z))
-        dl_dw=[0]*n
-        for i in range(n):
-            dl_dw[i]=round(((y_hat-y_true)*y_hat*(1-y_hat)*x[i]),5)
+        dl_dw=(y_hat-y_true)*y_hat*(1-y_hat)*x
+        dl_dw=np.round(dl_dw,5)
+
         dl_db=round((((y_hat-y_true)*y_hat*(1-y_hat))),5)
         return dl_dw,dl_db
         pass
